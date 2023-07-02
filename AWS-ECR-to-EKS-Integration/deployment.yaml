@@ -4,10 +4,15 @@ metadata:
   name: server-demo
   namespace: default
 spec:
-  replicas: 2
+  replicas: 5
   selector:
     matchLabels:
       app: web
+ strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate    
   template:
     metadata:
       labels:
